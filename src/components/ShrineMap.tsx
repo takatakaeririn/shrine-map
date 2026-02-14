@@ -7,25 +7,58 @@ import ShrineInfo from "./ShrineInfo";
 const ShrineMap = () => {
     const [shrines, setShrines] = useState<Shrine[]>([])
     const [selectedShrine, setSelectedShrine] = useState<Shrine | null>(null)
+    const [favoriteIds, setFavoriteIds] = useState<number[]>([])
+
+    // お気に入り機能
+    const toggleFavorite = (id: number) => {
+        setFavoriteIds(prev =>
+            prev.includes(id)
+                ? prev.filter(fid => fid !== id)
+                : [...prev, id]
+        )
+    }
+    const isFavoriteId = (id: number) => {
+        return favoriteIds.includes(id)
+    }
 
     useEffect(() => {
-        fetch('/data/shrines.json')
-            .then(response => response.json())
-            .then(data => { setShrines(data) })
-            .catch(error => console.error("データの取得に失敗しました:", error))
+        const fetchShrines = async () => {
+            try {
+                const response = await fetch('/data/shrines.json')
+                const data = await response.json()
+                // データをセット
+                setShrines(data)
+            } catch (error) {
+                console.log("データの取得に失敗しました:", error)
+            }
+        }
+           fetchShrines()
     }, [])
 
     return (
-        <MapView onDrag = {() => setSelectedShrine(null)}>
+        <MapView onDrag={() => setSelectedShrine(null)}>
             <ShrineMarkers
-            shrines = {shrines}
-            onSelect = {setSelectedShrine}/>
+                shrines={shrines}
+                onSelect={setSelectedShrine}
+            />
+
             <ShrineInfo
-            shrine = {selectedShrine}
-            onClose = {() => setSelectedShrine(null)}/>
+                shrine={selectedShrine}
+                isFavorite={
+                    selectedShrine
+                        ? isFavoriteId(selectedShrine.id)
+                        : false
+                }
+                onToggleFavorite={
+                    selectedShrine
+                        ? () => toggleFavorite(selectedShrine.id)
+                        : undefined
+                }
+                onClose={() => setSelectedShrine(null)}
+            />
         </MapView >
-        
-                    
+
+
     )
 }
 
