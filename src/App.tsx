@@ -1,7 +1,24 @@
-import ShrineMap from "./components/ShrineMap"
+import { useState } from "react"
+import ShrineMap from "./components/map/ShrineMap"
+import Header from "./components/layout/Header"
 
-export default function App() {
+function App() {
+    const [goshuinOnly, setGoshuinOnly] = useState(false)
+
+    const goshuinToggle = () => setGoshuinOnly(prev => !prev)
+
     return (
-        <ShrineMap />
+        <div className="h-screen relative">
+            <Header
+                goshuinOnly={goshuinOnly}
+                onToggle={goshuinToggle}
+            />
+
+            <main className="flex-1">
+                <ShrineMap goshuinOnly={goshuinOnly} />
+            </main>
+        </div>
     )
 }
+
+export default App

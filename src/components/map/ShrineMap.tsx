@@ -1,10 +1,14 @@
-import type { Shrine } from "../types/shrine"
+import type { Shrine } from "../../types/shrine"
 import { useState, useEffect } from 'react';
 import MapView from './MapView'
 import ShrineMarkers from "./ShrineMarkers";
 import ShrineInfo from "./ShrineInfo";
 
-const ShrineMap = () => {
+type props = {
+    goshuinOnly: boolean
+}
+
+const ShrineMap = ({ goshuinOnly }: props) => {
     const [shrines, setShrines] = useState<Shrine[]>([])
     const [selectedShrine, setSelectedShrine] = useState<Shrine | null>(null)
     const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
@@ -52,10 +56,15 @@ const ShrineMap = () => {
         fetchShrines()
     }, [])
 
+    // 御朱印フィルター
+    const filterdShrines = goshuinOnly
+    ? shrines.filter(shrine => shrine.hasGoshuin)
+    : shrines
+
     return (
         <MapView onDrag={() => setSelectedShrine(null)}>
             <ShrineMarkers
-                shrines={shrines}
+                shrines={filterdShrines}
                 onSelect={setSelectedShrine}
             />
 

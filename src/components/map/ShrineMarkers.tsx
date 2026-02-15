@@ -1,5 +1,5 @@
 import { AdvancedMarker } from "@vis.gl/react-google-maps";
-import { type Shrine } from "../types/shrine";
+import { type Shrine } from "../../types/shrine";
 
 type Props = {
     shrines: Shrine[]

@@ -1,5 +1,5 @@
 import { InfoWindow } from "@vis.gl/react-google-maps";
-import { type Shrine } from "../types/shrine";
+import { type Shrine } from "../../types/shrine";
 import { Star } from "lucide-react";
 
 type Props = {
