@@ -4,6 +4,7 @@ import Header from "./components/layout/Header"
 
 function App() {
     const [goshuinOnly, setGoshuinOnly] = useState(false)
+    const [searchQuery, setSearchQuery] = useState("")
 
     const goshuinToggle = () => setGoshuinOnly(prev => !prev)
 
@@ -12,10 +13,15 @@ function App() {
             <Header
                 goshuinOnly={goshuinOnly}
                 onToggle={goshuinToggle}
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
             />
 
             <main className="flex-1">
-                <ShrineMap goshuinOnly={goshuinOnly} />
+                <ShrineMap
+                    goshuinOnly={goshuinOnly}
+                    searchQuery={searchQuery}
+                />
             </main>
         </div>
     )

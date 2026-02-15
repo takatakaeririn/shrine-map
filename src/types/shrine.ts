@@ -2,6 +2,7 @@ export type Shrine = {
     // 一覧表示項目
     id: number
     name: string
+    kana: string
     lat: number
     lng: number
 
@@ -16,5 +17,4 @@ export type Shrine = {
 // ユーザー状態
 export type UserShrineState = {
     favoriteIds: number[]
-    visitedIds: number[]
 }

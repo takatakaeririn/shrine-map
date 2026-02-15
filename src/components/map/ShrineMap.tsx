@@ -4,11 +4,12 @@ import MapView from './MapView'
 import ShrineMarkers from "./ShrineMarkers";
 import ShrineInfo from "./ShrineInfo";
 
-type props = {
+type Props = {
     goshuinOnly: boolean
+    searchQuery: string
 }
 
-const ShrineMap = ({ goshuinOnly }: props) => {
+const ShrineMap = ({ goshuinOnly, searchQuery }: Props) => {
     const [shrines, setShrines] = useState<Shrine[]>([])
     const [selectedShrine, setSelectedShrine] = useState<Shrine | null>(null)
     const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
@@ -22,7 +23,6 @@ const ShrineMap = ({ goshuinOnly }: props) => {
         }
     })
 
-    // お気に入り保存
     useEffect(() => {
         localStorage.setItem(
             "favoriteShrines",
@@ -30,7 +30,6 @@ const ShrineMap = ({ goshuinOnly }: props) => {
         )
     }, [favoriteIds])
 
-    // お気に入り機能
     const toggleFavorite = (id: number) => {
         setFavoriteIds(prev =>
             prev.includes(id)
@@ -47,24 +46,32 @@ const ShrineMap = ({ goshuinOnly }: props) => {
             try {
                 const response = await fetch('/data/shrines.json')
                 const data = await response.json()
-                // データをセット
                 setShrines(data)
             } catch (error) {
-                console.log("データの取得に失敗しました:", error)
+                console.error("データの取得に失敗:", error)
             }
         }
         fetchShrines()
     }, [])
 
-    // 御朱印フィルター
-    const filterdShrines = goshuinOnly
-    ? shrines.filter(shrine => shrine.hasGoshuin)
-    : shrines
+    // 神社検索・御朱印フィルター
+    // クエリ正規化
+    const query = searchQuery.trim().toLowerCase()
+
+    const filteredShrines = shrines.filter(shrine => {
+        if (goshuinOnly && !shrine.hasGoshuin) return false
+        if (!query) return true
+
+        return (
+            shrine.name.toLowerCase().includes(query) ||
+            shrine.kana?.toLowerCase().includes(query)
+        )
+    })
 
     return (
         <MapView onDrag={() => setSelectedShrine(null)}>
             <ShrineMarkers
-                shrines={filterdShrines}
+                shrines={filteredShrines}
                 onSelect={setSelectedShrine}
             />
 
