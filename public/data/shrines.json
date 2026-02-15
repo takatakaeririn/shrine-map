@@ -23,7 +23,7 @@
     "lat": 34.879644711007565,
     "lng": 135.70085123030418,
     "description":"緑豊かな丘の上からの眺望を楽しめる、9 世紀創建の伝統ある神社。",
-    "imageUrl":"",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771082865/34085587_s_u3ehon.jpg",
     "hasGoshuin": true
   },
   {
@@ -32,7 +32,7 @@
     "lat": 35.00390194078766,
     "lng": 135.7792614996236,
     "description": "日本有数の祭礼が行われる 656 年創建の神社。",
-    "imageUrl": "",
+    "imageUrl": "https://res.cloudinary.com/dn0ionhng/image/upload/v1771083070/33877054_s_jimhk8.jpg",
     "hasGoshuin": true
   },
   {
@@ -41,7 +41,7 @@
     "lat": 35.039083185046195,
     "lng": 135.7733823057176,
     "description":"静かな川沿いの森にある有名な 2,000 年の歴史がある神社。発掘調査現場もある。",
-    "imageUrl":"",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771083202/1293471_s_vbb4jo.jpg",
     "hasGoshuin": true
   },
   {
@@ -86,7 +86,7 @@
     "lat": 35.0161052883497,
     "lng": 135.78293055174538,
     "description":"平安遷都 1100 年を記念して 1895 年に創建された神社。美しい景観をみせる日本庭園がある。",
-    "imageUrl":"",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771083044/33827888_s_pc9rbe.jpg",
     "hasGoshuin": true
   }
 ]

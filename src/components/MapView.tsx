@@ -15,8 +15,8 @@ const MapView = ({ children, onDrag }: Props) => {
 
             <APIProvider apiKey={apiKey}>
                 <Map
-                    defaultCenter={{ lat: 34.67, lng: 135.50 }}
-                    defaultZoom={15}
+                    defaultCenter={{ lat: 34.98, lng: 135.76 }}
+                    defaultZoom={14}
                     mapId="DEMO_MAP_ID"
                     onDragstart={onDrag}
                 >

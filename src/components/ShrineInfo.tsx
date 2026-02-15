@@ -1,6 +1,6 @@
 import { InfoWindow } from "@vis.gl/react-google-maps";
 import { type Shrine } from "../types/shrine";
-import { Heart } from "lucide-react";
+import { Star } from "lucide-react";
 
 type Props = {
     shrine: Shrine | null
@@ -17,40 +17,39 @@ const ShrineInfo = ({ shrine, isFavorite, onToggleFavorite, onClose }: Props) =>
             position={{ lat: shrine.lat, lng: shrine.lng }}
             onCloseClick={onClose}
         >
-            <div className="max-w-[200px] p-1 text-gray-800">
+            <div className="w-[240px] p-1 text-gray-800">
                 {shrine.imageUrl && (
-                    <img src={shrine.imageUrl} alt={shrine.name}
+                    <img
+                        src={shrine.imageUrl}
+                        alt={shrine.name}
                         // 画像の遅延読み込み
                         loading="lazy"
-                        className="w-full h-24 object-cover rounded-t-md mb-2" />
+                        className="w-full h-32 object-cover object-center rounded-md mb-2" />
                 )}
-                <div className="flex items-center justify-between gap-2 mb-1">
-                    <div className="flex items-center justify-between">
-                        <h2 className="text-lg font-bold">{shrine.name}</h2>
-
-                        <span
-                            className={`text-xs px-2 py-0.5 rounded-full ${shrine.hasGoshuin
-                                ? "bg-green-100 text-green-700"
-                                : "bg-gray-100 text-gray-500"
-                                }`}
-                        >
-                            {shrine.hasGoshuin ? "御朱印あり" : "御朱印なし"}
-                        </span>
-                    </div>
-
+                <div className="flex items-start justify-between gap-2 mb-2">
+                    <h2 className="text-lg font-bold">{shrine.name}</h2>
                     <button
                         onClick={onToggleFavorite}
-                        className="transition-all duration-200 hover:scale-110 active:scale-95"
+                        className="flex-shrink-0 pt-0.5"
                     >
-                        <Heart size={18}
-                            className={`transition-colors duration-200 ${isFavorite
-                                ? "text-red-500 fill-red-500" : "text-gray-400"
-                                }`} />
+                        <Star size={20}
+                            className={isFavorite
+                                ? "text-yellow-500 fill-yellow-500"
+                                : "text-gray-400"
+                            } />
                     </button>
 
                 </div>
+                <span
+                    className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full mb-2 ${shrine.hasGoshuin
+                        ? "bg-green-100 text-green-700"
+                        : "bg-gray-100 text-gray-500"
+                        }`}
+                >
+                    {shrine.hasGoshuin ? "御朱印あり" : "御朱印なし"}
+                </span>
                 {shrine.description && (
-                    <p className="text-sm text-gray-600 leading-snug">{shrine.description}</p>
+                    <p className="mt-1 text-sm text-gray-600 leading-snug">{shrine.description}</p>
                 )}
             </div>
         </InfoWindow>

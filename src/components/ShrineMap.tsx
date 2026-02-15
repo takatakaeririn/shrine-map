@@ -7,7 +7,24 @@ import ShrineInfo from "./ShrineInfo";
 const ShrineMap = () => {
     const [shrines, setShrines] = useState<Shrine[]>([])
     const [selectedShrine, setSelectedShrine] = useState<Shrine | null>(null)
-    const [favoriteIds, setFavoriteIds] = useState<number[]>([])
+    const [favoriteIds, setFavoriteIds] = useState<number[]>(() => {
+        // お気に入り読み込み
+        try {
+            const stored = localStorage.getItem("favoriteShrines")
+            return stored ? JSON.parse(stored) : []
+        } catch (error) {
+            console.error("読み込み失敗：", error)
+            return []
+        }
+    })
+
+    // お気に入り保存
+    useEffect(() => {
+        localStorage.setItem(
+            "favoriteShrines",
+            JSON.stringify(favoriteIds)
+        )
+    }, [favoriteIds])
 
     // お気に入り機能
     const toggleFavorite = (id: number) => {
@@ -32,7 +49,7 @@ const ShrineMap = () => {
                 console.log("データの取得に失敗しました:", error)
             }
         }
-           fetchShrines()
+        fetchShrines()
     }, [])
 
     return (
