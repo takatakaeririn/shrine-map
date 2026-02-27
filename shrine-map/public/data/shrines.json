@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "大阪天満宮",
+    "kana": "おおさかてんまんぐう",
+    "lat": 34.69618106779092,
+    "lng": 135.51266632518343,
+    "description":"10 世紀建立の神社。日本三大祭りのひとつである天神祭は 7 月に開催される。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771040950/26750982_s_hqtmk8.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 2,
+    "name": "住吉大社",
+    "kana": "すみよしたいしゃ",
+    "lat": 34.6125357524608,
+    "lng": 135.49376119614536,
+    "description":"景観の美しい 3 世紀の神社。赤い橋と静かな庭園がある。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771041160/23351561_s_nok70z.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 3,
+    "name": "石清水八幡宮",
+    "kana": "いわしみずはちまんぐう",
+    "lat": 34.879644711007565,
+    "lng": 135.70085123030418,
+    "description":"緑豊かな丘の上からの眺望を楽しめる、9 世紀創建の伝統ある神社。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771082865/34085587_s_u3ehon.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 4,
+    "name": "八坂神社",
+    "kana": "やさかじんじゃ",
+    "lat": 35.00390194078766,
+    "lng": 135.7792614996236,
+    "description": "日本有数の祭礼が行われる 656 年創建の神社。",
+    "imageUrl": "https://res.cloudinary.com/dn0ionhng/image/upload/v1771083070/33877054_s_jimhk8.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 5,
+    "name": "下鴨神社",
+    "kana": "しもがもじんじゃ",
+    "lat": 35.039083185046195,
+    "lng": 135.7733823057176,
+    "description":"静かな川沿いの森にある有名な 2,000 年の歴史がある神社。発掘調査現場もある。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771083202/1293471_s_vbb4jo.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 6,
+    "name": "葵稲荷大神",
+    "kana": "あおいいなりおおかみ",
+    "lat": 34.662328088243214,
+    "lng": 135.50412893007822,
+    "description":"なんばパークスのそばにある稲荷神社。",
+    "imageUrl":"",
+    "hasGoshuin": false
+  },
+  {
+    "id": 7,
+    "name": "伏見稲荷大社",
+    "kana": "ふしみいなりたいしゃ",
+    "lat": 34.967914272941854,
+    "lng": 135.77925196891346,
+    "description":"711 年に建立された山腹の神社。千本鳥居が有名。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771040185/4320077_s_hsjdri.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 8,
+    "name": "北野天満宮",
+    "kana": "きたのてんまんぐう",
+    "lat": 35.0313669469389,
+    "lng": 135.73606683401093,
+    "description":"10 世紀創建の神社。一年を通じて、四季折々の伝統行事を執り行う。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771602468/23413422_s_muck5m.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 9,
+    "name": "貴船神社",
+    "kana": "きふねじんじゃ",
+    "lat": 35.122204953085514,
+    "lng": 135.76339289407835,
+    "description":"緑豊かな山深くにある神社。灯籠が連なる参道も有名。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771602681/3866016_s_gdrhy5.jpg",
+    "hasGoshuin": true
+  },
+  {
+    "id": 10,
+    "name": "平安神宮",
+    "kana": "へいあんじんぐう",
+    "lat": 35.0161052883497,
+    "lng": 135.78293055174538,
+    "description":"平安遷都 1100 年を記念して 1895 年に創建された神社。美しい景観をみせる日本庭園がある。",
+    "imageUrl":"https://res.cloudinary.com/dn0ionhng/image/upload/v1771083044/33827888_s_pc9rbe.jpg",
+    "hasGoshuin": true
+  }
+]
